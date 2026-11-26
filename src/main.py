@@ -9,6 +9,8 @@ from email.utils import parseaddr
 from gmail_client import get_service, IST
 from email_text import get_email
 from ai_client import summarise
+from publish import publish
+from crypto import get_key, decrypt_obj
 
 OUT = "private"
 
@@ -60,6 +62,8 @@ def main():
     path = f"{OUT}/{day}.json"
     if os.path.exists(path):
         data = json.load(open(path, encoding="utf-8"))
+    elif os.path.exists(f"docs/data/{day}.enc"):
+        data = decrypt_obj(open(f"docs/data/{day}.enc").read(), get_key())
     else:
         data = {"date": str(day), "emails": [], "failed_items": []}
     done = {e["id"] for e in data["emails"]}
@@ -98,6 +102,7 @@ def main():
         time.sleep(4)
 
     write_index()
+    publish()
     print(f"Done: {len(data['emails'])} ok, {data['failed']} failed. Saved to {path}")
 
 

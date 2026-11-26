@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daily Brief</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="wrap">
+  <div id="bar"><span class="logo">D</span><b class="brand">Daily Brief</b>
+    <nav id="nav" hidden><a href="#today">today</a> | <a href="#past">past</a> | <a href="#categories">categories</a> | <a href="#about">about</a></nav>
+  </div>
+  <form id="gate" class="head">
+    <p>Enter passphrase to decrypt your briefs.</p>
+    <input id="pass" type="password" autocomplete="current-password" autofocus>
+    <button type="submit">unlock</button>
+    <div id="msg" class="meta"></div>
+  </form>
+  <div id="main"></div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
