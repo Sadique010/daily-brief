@@ -7,3 +7,4 @@ token.json
 client_secret*.json
 *.key
 credentials*.json
+private/

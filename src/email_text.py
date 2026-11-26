@@ -48,4 +48,4 @@ def get_email(svc, msg_id, limit=4000):
         text = " ".join(s.out)
     text = " ".join(text.split())
     return {"id": m["id"], "subject": h.get("subject", ""), "sender": h.get("from", ""),
-            "date": h.get("date", ""), "body": text[:limit]}
+            "date": h.get("date", ""), "internal": int(m["internalDate"]), "body": text[:limit]}
